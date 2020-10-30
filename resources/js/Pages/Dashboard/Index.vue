@@ -1,10 +1,10 @@
 <template>
-  <h1>Dashboard</h1>
+  <h4>Dashboard, Welcome {{fname}} {{lname}}</h4>
 </template>
 
 <script>
 export default {
-    props: ['name'],
+    props: ['fname','lname'],
 
     mounted () {
         console.log('This is mounted');
