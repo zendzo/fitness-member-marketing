@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
       <div class="container">
-        <inertia-link class="navbar-brand" href="/">Fitness Force</inertia-link>
+        <inertia-link class="navbar-brand" href="/dashboard">Fitness Force</inertia-link>
         <button
           class="navbar-toggler"
           type="button"
@@ -17,7 +17,13 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
-          <ul class="navbar-nav mr-auto"></ul>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <inertia-link class="nav-link" href="/lead/create">
+                Leads
+              </inertia-link>
+            </li>
+          </ul>
 
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
