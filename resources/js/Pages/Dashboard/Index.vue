@@ -1,17 +1,26 @@
 <template>
-  <h4>Dashboard, Welcome {{fname}} {{lname}}</h4>
+  <layout>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Dashboard, Welcome {{fname}} {{lname}}</h4>
+        </div>
+      </div>
+    </div>
+  </layout>
 </template>
 
 <script>
+import Layout from '../../Shared/Layout'
+
 export default {
-    props: ['fname','lname'],
+  components: {
+    Layout
+  },
+  props: ['fname','lname'],
 
     mounted () {
         console.log('This is mounted');
     }
 }
 </script>
-
-<style>
-
-</style>
