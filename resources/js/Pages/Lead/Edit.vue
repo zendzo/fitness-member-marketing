@@ -112,6 +112,7 @@ export default {
 
   methods: {
     async handleSubmit() {
+      let response = await this.$inertia.patch(`/lead/update/${this.lead.id}`, this.lead);
     },
   },
 };
