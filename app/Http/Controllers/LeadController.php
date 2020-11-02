@@ -48,7 +48,7 @@ class LeadController extends Controller
             'interested_package' => $request->interested_package ?: null
         ]);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('lead.index');
     }
 
     public function edit(Lead $lead)
