@@ -50,4 +50,11 @@ class LeadController extends Controller
 
         return redirect()->route('dashboard');
     }
+
+    public function edit(Lead $lead)
+    {
+        return Inertia::render('Lead/Edit',[
+            'lead_prop' => $lead
+        ]);
+    }
 }
