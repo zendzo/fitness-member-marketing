@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth'], function(){
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/lead', [LeadController::class, 'index'])->name('lead.index');
     Route::get('/lead/create', [LeadController::class, 'create'])->name('lead.create');
     Route::post('/lead/store', [LeadController::class, 'store'])->name('lead.store');
     

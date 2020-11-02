@@ -18,10 +18,29 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <inertia-link class="nav-link" href="/lead/create">
-                Leads
-              </inertia-link>
+            <li class="nav-item dropdown">
+              <a
+                id="navbarDropdown"
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                v-pre
+              >
+               Manage
+              </a>
+
+              <div
+                class="dropdown-menu dropdown-menu-left"
+                aria-labelledby="navbarDropdown"
+              >
+                <inertia-link href="/lead" class="dropdown-item">
+                  Lead
+                </inertia-link>
+
+              </div>
             </li>
           </ul>
 

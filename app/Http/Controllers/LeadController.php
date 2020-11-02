@@ -9,6 +9,19 @@ use Inertia\Inertia;
 
 class LeadController extends Controller
 {
+
+    public function index()
+    {
+        $leads = Lead::query()
+        ->where('branch_id', 1)
+        ->orderBy('id', 'DESC')
+        ->get();
+
+        return Inertia::render('Lead/Index',[
+            'leads' => $leads
+        ]);
+    }
+
     public function create()
     {
         return Inertia::render('Lead/Create');
