@@ -2,6 +2,15 @@
   <layout>
     <div class="container">
       <div class="row">
+        <div class="col-md-6">
+          <h4>
+            <inertia-link :href="$route('lead.index')">Lead</inertia-link>
+            <span class="breadcrumb-sep">/</span>
+            <span>Create</span>
+          </h4>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-12">
           <form @submit.prevent="handleSubmit">
             <div class="row">

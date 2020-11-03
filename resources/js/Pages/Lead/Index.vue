@@ -2,12 +2,12 @@
   <layout>
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <h4>Lead Index</h4>
-          <div class="text-right">
-            <inertia-link :href="$route('lead.create')" class="btn btn-small btn-warning mb-4">Add Lead</inertia-link>
-          </div>
+        <div class="col-md-6">
+          <h4>Lead</h4>
         </div>
+        <div class="col-md-6">
+            <inertia-link :href="$route('lead.create')" class="btn btn-small btn-warning mb-4 float-right">Add Lead</inertia-link>
+          </div>
       </div>
 
       <div class="row">

@@ -1,6 +1,15 @@
 <template>
   <layout>
     <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h4>
+            <inertia-link :href="$route('lead.index')">Lead</inertia-link>
+            <span class="breadcrumb-sep">/</span>
+            <span>Lead Details</span>
+          </h4>
+        </div>
+      </div>
       <div class="row mb-4">
         <div class="col-md-12">
           <div class="card">
@@ -124,9 +133,9 @@
           <div class="card" v-else>
             <div class="card-header">Remainder</div>
             <div class="card-body">
-              <button class="btn btn-success btn-small">
+              <inertia-link :href="$route('remainder.create',{lead: lead})" class="btn btn-success btn-small">
                 Add New Remainders
-              </button>
+              </inertia-link>
             </div>
           </div>
         </div>
@@ -156,6 +165,7 @@ export default {
         phone: "",
         dob: "",
         interested_package: "",
+        remainders: {}
       },
     };
   },
