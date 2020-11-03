@@ -6,12 +6,14 @@
       ref="input"
       v-bind="$attrs"
       class="form-control"
-      :class="{ error: error }"
+      :class="{ 'is-invalid': error }"
       :value="value"
       @input="$emit('input', $event.target.value)"
       :placeholder="label"
     />
-    <div v-if="error" class="form-error">{{ error }}</div>
+    <div v-if="error" class="invalid-feedback">
+      {{ error }}
+    </div>
   </div>
 </template>
 

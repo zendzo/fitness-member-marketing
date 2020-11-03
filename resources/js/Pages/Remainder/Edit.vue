@@ -7,9 +7,9 @@
           <h4>
             <inertia-link :href="$route('lead.index')">Lead</inertia-link>
             <span class="breadcrumb-sep">/</span>
-            <inertia-link :href="$route('lead.edit', {lead: lead})">Lead Details</inertia-link>
+           <inertia-link :href="$route('lead.edit', {lead: lead})">Lead Details</inertia-link>
             <span class="breadcrumb-sep">/</span>
-            <span class="breadcrumb-sep">Add Reminder</span>
+            <span class="breadcrumb-sep">Edit Reminder</span>
           </h4>
         </div>
       </div>
@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import Layout from "../../Shared/Layout";
-import RemainderForm from './RemainderForm';
+import Layout from '../../Shared/Layout'
+import RemainderForm from './RemainderForm'
 
 export default {
   components: {
@@ -39,24 +39,14 @@ export default {
   },
   props: {
     lead: Object,
-    errors: Object, 
-  },
-  data () {
-    return {
-      remainder: {
-        remainder: '',
-        remainder_date: '',
-        lead_id: this.lead.id
-      }
-    }
+    remainder: Object,
+    errors: Object
   },
   methods: {
-    async handleSubmit(postData){
-      await this.$inertia.post(route('remainder.store'), postData);
+    handleSubmit(postData){
+      console.log(postData);
     }
   }
-};
-</script>
 
-<style>
-</style>
+}
+</script>
