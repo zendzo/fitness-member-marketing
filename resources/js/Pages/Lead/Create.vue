@@ -6,75 +6,69 @@
           <form @submit.prevent="handleSubmit">
             <div class="row">
               <div class="col-md-6">
+                <text-input
+                  v-model="lead.name"
+                  :error="errors.name"
+                  label="First name"
+                  id="name"
+                />
+              </div>
+
+              <div class="col-md-6">
                 <div class="form-group">
-                  <label for="name">Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter Name"
-                    v-model="lead.name"
-                    id="name"
-                  />
+                  <text-input
+                  v-model="lead.email"
+                  :error="errors.email"
+                  label="Email address"
+                  id="email"
+                />
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="email">Email</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter Email"
-                    v-model="lead.email"
-                    id="email"
-                  />
+                  <text-input
+                  v-model="lead.phone"
+                  :error="errors.name"
+                  label="Phone number"
+                  id="phone"
+                />
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="phone">Phone</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter Phone"
-                    v-model="lead.phone"
-                    id="phone"
-                  />
+                  <text-input
+                  v-model="lead.dob"
+                  :error="errors.name"
+                  label="Date of birth"
+                  id="dob"
+                  type="date"
+                />
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="dob">Birth Day</label>
-                  <input
-                    type="date"
-                    class="form-control"
-                    placeholder="Birth Day"
-                    v-model="lead.dob"
-                    id="dob"
-                  />
+                  <text-input
+                  v-model="lead.interested_package"
+                  :error="errors.interested_package"
+                  label="Package"
+                  id="interested_package"
+                />
                 </div>
               </div>
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="package">Interested Package</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter Package"
-                    v-model="lead.interested_package"
-                    id="package"
-                  />
-                </div>
-              </div>
-
             </div>
             <div class="row">
               <div class="col-md-6">
-                <button type="submit" class="btn bnt-small btn-primary">Save</button>
-                <inertia-link :href="$route('lead.index')" class="btn bnt-small btn-warning">Back</inertia-link>
+                <button type="submit" class="btn bnt-small btn-primary">
+                  Save
+                </button>
+                <inertia-link
+                  :href="$route('lead.index')"
+                  class="btn bnt-small btn-warning"
+                  >Back</inertia-link
+                >
               </div>
             </div>
           </form>
@@ -86,10 +80,15 @@
 
 <script>
 import Layout from "../../Shared/Layout";
+import TextInput from "../../Shared/TextInput";
 
 export default {
   components: {
     Layout,
+    TextInput,
+  },
+  props: {
+    errors: Object,
   },
   data() {
     return {
@@ -105,7 +104,7 @@ export default {
 
   methods: {
     async handleSubmit() {
-      let response = await this.$inertia.post('/lead/store', this.lead);
+      let response = await this.$inertia.post("/lead/store", this.lead);
     },
   },
 };

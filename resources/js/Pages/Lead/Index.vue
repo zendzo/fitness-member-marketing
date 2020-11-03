@@ -19,6 +19,7 @@
               <th>Email</th>
               <th>Phone</th>
               <th>DOB</th>
+              <th>Age</th>
               <th>Package</th>
               <th>Add On</th>
               <th></th>
@@ -29,6 +30,7 @@
               <td>{{ lead.email }}</td>
               <td>{{ lead.phone }}</td>
               <td>{{ lead.dob }}</td>
+              <td>{{ lead.age }}</td>
               <td>{{ lead.interested_package }}</td>
               <td>{{ lead.created_at }}</td>
               <td>

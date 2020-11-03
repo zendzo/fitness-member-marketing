@@ -9,6 +9,17 @@ use Inertia\Inertia;
 
 class LeadController extends Controller
 {
+    private $validations;
+
+    public function __construct()
+    {
+        $this->validations = [
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'dob' => 'required|date',
+        ];
+    }
 
     public function index()
     {
@@ -30,12 +41,7 @@ class LeadController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request,[
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
-            'dob' => 'required|date',
-        ]);
+        $this->validate($request,$this->validations);
 
         Lead::create([
             'name' => $request->name,
@@ -54,7 +60,19 @@ class LeadController extends Controller
     public function edit(Lead $lead)
     {
         return Inertia::render('Lead/Edit',[
-            'lead_prop' => $lead
+            'lead_prop' => $lead->load('remainders')
         ]);
+    }
+
+    public function update(Request $request, Lead $lead)
+    {
+        $rules = $this->validations;
+        $rules['id'] = 'required|exists:leads,id';
+
+        $this->validate($request, $rules);
+
+        $lead->update($request->all());
+
+        return redirect()->route('lead.edit',['lead' => $lead]);
     }
 }

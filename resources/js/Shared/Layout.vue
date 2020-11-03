@@ -36,7 +36,7 @@
                 class="dropdown-menu dropdown-menu-left"
                 aria-labelledby="navbarDropdown"
               >
-                <inertia-link href="/lead" class="dropdown-item">
+                <inertia-link :href="$route('lead.index')" class="dropdown-item">
                   Lead
                 </inertia-link>
 
