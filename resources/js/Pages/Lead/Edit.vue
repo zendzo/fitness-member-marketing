@@ -105,7 +105,7 @@
                     <div class="col-md-2">{{ remainder.remainder_date }}</div>
                     <div class="col-md-2"><strong>{{ remainder.status }}</strong></div>
                     <div class="col-md-2">
-                      <inertia-link :href="$route('lead.edit', { lead: lead.id })" class="float-right">
+                      <inertia-link :href="$route('remainder.edit', { lead: lead, remainder: remainder })" class="float-right">
                         <svg
                           width="1em"
                           height="1em"
@@ -133,9 +133,11 @@
           <div class="card" v-else>
             <div class="card-header">Remainder</div>
             <div class="card-body">
-              <inertia-link :href="$route('remainder.create',{lead: lead})" class="btn btn-success btn-small">
+              <div class="d-flex justify-content-center">
+                <inertia-link :href="$route('remainder.create',{lead: lead})" class="btn btn-success btn-small">
                 Add New Remainders
               </inertia-link>
+              </div>
             </div>
           </div>
         </div>
