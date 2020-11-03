@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LeadController;
+use App\Http\Controllers\RemainderController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/lead/edit/{lead}', [LeadController::class, 'edit'])->name('lead.edit');
 
     Route::patch('/lead/update/{lead}', [LeadController::class, 'update'])->name('lead.update');
+
+    Route::get('/lead/{lead}/remainder/create', [RemainderController::class,'create'])->name('remainder.create');
     
 });
 
