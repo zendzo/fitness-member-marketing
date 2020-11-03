@@ -9,6 +9,15 @@ class Remainder extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+    'lead_id',
+    'user_id',
+    'remainder',
+    'note',
+    'remainder_date',
+    'status',
+    ];
+
     public function getStatusAttribute($value)
     {
         return ucfirst($value);
