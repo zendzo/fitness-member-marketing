@@ -22,4 +22,9 @@ class Remainder extends Model
     {
         return ucfirst($value);
     }
+
+    public function lead()
+    {
+        return $this->belongsTo(Lead::class);
+    }
 }

@@ -41,4 +41,47 @@ class RemainderController extends Controller
             'remainder' => $remainder
         ]);
     }
+
+    public function update(Request $request)
+    {
+        $remainder = Remainder::findOrfail($request->id);
+        $remainder->status = 'completed';
+        $save = $remainder->save();
+        if ($save) {
+            return redirect()->route('remainder.create', $remainder->lead);
+        }
+    }
+
+    public function close(Request $request)
+    {
+        $remainder = Remainder::findOrfail($request->id);
+        $remainder->status = 'completed';
+        $save = $remainder->save();
+        if ($save) {
+            return redirect()->route('remainder.create.note', $remainder);
+        }
+    }
+
+    public function createNote(Remainder $remainder)
+    {
+        return Inertia::render('Remainder/Note/Create', [
+            'remainder' => $remainder->load('lead')
+        ]);
+    }
+
+    public function storeNote(Request $request)
+    {
+        $this->validate($request,[
+            'note' => 'required|min:5',
+            'remainder_id' => 'required|exists:remainders,id'
+        ]);
+
+        $remainder = Remainder::findOrfail($request->remainder_id);
+        $remainder->note = $request->note;
+        $save = $remainder->save();
+
+        if ($save) {
+            return redirect()->route('lead.edit', $remainder->lead);
+        }
+    }
 }

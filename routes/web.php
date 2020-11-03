@@ -19,6 +19,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/lead/{lead}/remainder/create', [RemainderController::class,'create'])->name('remainder.create');
     Route::post('/lead/remainder/store', [RemainderController::class, 'store'])->name('remainder.store');
     Route::get('/lead/{lead}/remainder/{remainder}', [RemainderController::class,'edit'])->name('remainder.edit');
+    Route::post('/lead/remainder/update', [RemainderController::class, 'update'])->name('remainder.update');
+    Route::post('/lead/remainder/close', [RemainderController::class, 'close'])->name('remainder.close');
+
+    Route::get('/lead/remainder/{remainder}/note', [RemainderController::class, 'createNote'])->name('remainder.create.note');
+    Route::post('/lead/remainder/note', [RemainderController::class, 'storeNote'])->name('remainder.store.note');
     
 });
 
