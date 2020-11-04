@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
       <div class="container">
-        <inertia-link class="navbar-brand" href="/dashboard">Fitness Force</inertia-link>
+        <inertia-link class="navbar-brand" href="/dashboard">{{ $page.props.appName }}</inertia-link>
         <button
           class="navbar-toggler"
           type="button"
@@ -56,9 +56,8 @@
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
-                v-pre
               >
-                M Zaenal Mustofa
+                <span>{{ $page.props.user.name }}</span>
               </a>
 
               <div

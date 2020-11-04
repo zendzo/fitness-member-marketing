@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h4>Dashboard, Welcome {{ fname }} {{ lname }}</h4>
+          <h4>Dashboard, Welcome {{ $page.props.user.name }}</h4>
         </div>
       </div>
 
@@ -25,6 +25,6 @@ export default {
     Layout,
     RemainderList
   },
-  props: ["fname", "lname", "remainders"],
+  props: ["remainders"],
 };
 </script>

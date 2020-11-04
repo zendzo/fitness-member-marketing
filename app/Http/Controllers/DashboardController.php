@@ -17,8 +17,6 @@ class DashboardController extends Controller
                     ->where('remainders.status', 'pending')
                     ->get();
         $data = [
-            'fname' => 'Zaenal',
-            'lname' => 'Mustofa',
             'remainders' => $remainders
         ];
 
