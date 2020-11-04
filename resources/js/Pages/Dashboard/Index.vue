@@ -3,7 +3,13 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h4>Dashboard, Welcome {{fname}} {{lname}}</h4>
+          <h4>Dashboard, Welcome {{ fname }} {{ lname }}</h4>
+        </div>
+      </div>
+
+      <div class="row" v-if="remainders.length > 0">
+        <div class="col-md-12">
+          <remainder-list :remainders="remainders"></remainder-list>
         </div>
       </div>
     </div>
@@ -11,16 +17,14 @@
 </template>
 
 <script>
-import Layout from '../../Shared/Layout'
+import Layout from "../../Shared/Layout"
+import RemainderList from '../Remainder/RemainderList'
 
 export default {
   components: {
-    Layout
+    Layout,
+    RemainderList
   },
-  props: ['fname','lname'],
-
-    mounted () {
-        console.log('This is mounted');
-    }
-}
+  props: ["fname", "lname", "remainders"],
+};
 </script>
